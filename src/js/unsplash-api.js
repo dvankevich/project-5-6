@@ -5,7 +5,7 @@ import axios from 'axios';
  * @param {string} query
  * @returns images list
  */
-export async function getPhotos(query) {
+export async function getPhotos(query, page = 1) {
   const BASE_URL = 'https://api.unsplash.com';
   const API_KEY = 'LxvKVGJqiSe6NcEVZOaLXC-f2JIIWZaq_o0WrF8mwJc';
   const API_ENDPOINT = '/search/photos';
@@ -15,6 +15,7 @@ export async function getPhotos(query) {
       params: {
         query,
         per_page: 12,
+        page,
         orientation: 'portrait',
         client_id: API_KEY,
       },
